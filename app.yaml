@@ -1,20 +1,7 @@
-runtime: custom
-vm: true
+runtime: python27
 api_version: 1
-
-manual_scaling:
-  instances: 1
+threadsafe: yes
 
 handlers:
-
-- url: /(.*\.(html|css|js))
-  static_files: static/\1
-  upload: static/(.*\.(html|css|js))
-
-- url: /
-  static_files: static/index.html
-  upload: static/index.html
-
-- url: /.*
-  script: app.js
-  login: required
+- url: .*
+  script: main.bottle
